@@ -1,5 +1,13 @@
 export default class Bounds {
 
+  public get width(): number {
+    return this.maxX - this.minX;
+  }
+
+  public get height(): number {
+    return this.maxY = this.minY;
+  }
+
   constructor(
     public minX: number = 0,
     public minY: number = 0,

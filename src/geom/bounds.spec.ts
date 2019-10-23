@@ -24,5 +24,15 @@ describe( 'geom.Bounds', ():void=>{
     });
   });
 
-  
+  describe('width and height',():void=>{
+    it('should return correct width', ():void=>{
+      const bounds:Bounds = new Bounds( 100, 100, 200, 200);
+      expect(bounds.width).to.equal(100);
+    });
+
+    it('should return correct height', ():void=>{
+      const bounds:Bounds = new Bounds( 100, 100, 200, 200);
+      expect(bounds.height).to.equal(100);
+    });
+  });
 });
