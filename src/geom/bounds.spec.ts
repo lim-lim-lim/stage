@@ -43,4 +43,12 @@ describe( 'geom.Bounds', ():void=>{
       expect(bounds1.equal(bounds2)).to.true
     });
   });
+  
+  describe('copy',():void=>{
+    it('should return same bounds instance', ():void=>{
+      const bounds1:Bounds = new Bounds( 100, 100, 100, 100);
+      const bounds2:Bounds = bounds1.copy();
+      expect(bounds1.equal(bounds2)).to.true
+    });
+  });
 });

@@ -25,4 +25,8 @@ export default class Bounds {
   public equal(bounds: Bounds): boolean {
     return this.minX === bounds.minX && this.maxX === bounds.maxX && this.minY === bounds.minY && this.maxY === bounds.maxY;
   }
+
+  public copy(): Bounds {
+    return new Bounds(this.minX, this.minY, this.maxX, this.maxY);
+  }
 }
