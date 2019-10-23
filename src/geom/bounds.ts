@@ -21,4 +21,8 @@ export default class Bounds {
     this.minX = Math.min(this.minX, bounds.minX);
     this.minY = Math.min(this.minY, bounds.minY);
   }
+
+  public equal(bounds: Bounds): boolean {
+    return this.minX === bounds.minX && this.maxX === bounds.maxX && this.minY === bounds.minY && this.maxY === bounds.maxY;
+  }
 }

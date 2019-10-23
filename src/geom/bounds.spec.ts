@@ -35,4 +35,12 @@ describe( 'geom.Bounds', ():void=>{
       expect(bounds.height).to.equal(100);
     });
   });
+
+  describe('same',():void=>{
+    it('should equal is two bounds', ():void=>{
+      const bounds1:Bounds = new Bounds( 100, 100, 200, 200);
+      const bounds2:Bounds = new Bounds( 100, 100, 200, 200);
+      expect(bounds1.equal(bounds2)).to.true
+    });
+  });
 });
