@@ -1,3 +1,5 @@
+import Point from "./point";
+
 export default class Bounds {
 
   public get width(): number {
@@ -28,5 +30,14 @@ export default class Bounds {
 
   public copy(): Bounds {
     return new Bounds(this.minX, this.minY, this.maxX, this.maxY);
+  }
+
+  public getPoints(): Point[] {
+    return [
+      new Point(this.minX, this.minY),
+      new Point(this.maxX, this.minY),
+      new Point(this.maxX, this.maxY),
+      new Point(this.minX, this.maxY)
+    ]
   }
 }

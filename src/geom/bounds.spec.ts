@@ -1,5 +1,6 @@
 import Bounds from './bounds';
 import { expect } from 'chai';
+import Point from './point';
 
 describe( 'geom.Bounds', ():void=>{  
   describe('constructor', ():void=>{
@@ -49,6 +50,17 @@ describe( 'geom.Bounds', ():void=>{
       const bounds1:Bounds = new Bounds( 100, 100, 100, 100);
       const bounds2:Bounds = bounds1.copy();
       expect(bounds1.equal(bounds2)).to.true
+    });
+  });
+
+  describe('getPoints',():void=>{
+    it('should return points data', ():void=>{
+      const bounds:Bounds = new Bounds( 100, 100, 200, 200);
+      const points:Point[] = bounds.getPoints();
+      expect(points[0].equal(new Point(100, 100))).to.true
+      expect(points[1].equal(new Point(200, 100))).to.true
+      expect(points[2].equal(new Point(200, 200))).to.true
+      expect(points[3].equal(new Point(100, 200))).to.true
     });
   });
 });
