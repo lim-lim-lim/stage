@@ -1,4 +1,5 @@
-export default class Point{
-  public x:number = 0;
-  public y:number = 0;
+export default class Point {
+  constructor(public x: number = 0, public y: number = 0) {
+
+  }
 }
