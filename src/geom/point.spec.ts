@@ -19,4 +19,20 @@ describe('geom.Point', (): void => {
       expect(point.y).to.equal(200);
     });
   });
+
+  describe('equal',():void=>{
+    it('should equal is two point', ():void=>{
+      const point1:Point = new Point( 100, 100 );
+      const point2:Point = new Point( 100, 100 );
+      expect(point1.equal(point2)).to.true
+    });
+  });
+
+  describe('copy',():void=>{
+    it('should return same point instance', ():void=>{
+      const point1:Point = new Point( 100, 100 );
+      const point2:Point = point1.copy();
+      expect(point1.equal(point2)).to.true
+    });
+  });
 });
