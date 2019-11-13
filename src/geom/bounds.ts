@@ -38,6 +38,10 @@ export default class Bounds {
     }
   }
 
+  public isIncludePoint(point: Point): boolean {
+    return point.x >= this.minX && point.x <= this.maxX && point.y >= this.minY && point.y <= this.maxY;
+  }
+
   public equal(bounds: Bounds): boolean {
     return this.minX === bounds.minX && this.maxX === bounds.maxX && this.minY === bounds.minY && this.maxY === bounds.maxY;
   }
