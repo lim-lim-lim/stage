@@ -24,6 +24,20 @@ export default class Bounds {
     this.minY = Math.min(this.minY, bounds.minY);
   }
 
+  public extendByPoint(point: Point): void {
+    if (point.x > this.maxX) {
+      this.maxX = point.x;
+    } else if (point.x < this.minX) {
+      this.minX = point.x;
+    }
+
+    if (point.y > this.maxY) {
+      this.maxY = point.y;
+    } else if (point.y < this.minY) {
+      this.minY = point.y;
+    }
+  }
+
   public equal(bounds: Bounds): boolean {
     return this.minX === bounds.minX && this.maxX === bounds.maxX && this.minY === bounds.minY && this.maxY === bounds.maxY;
   }

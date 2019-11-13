@@ -63,4 +63,97 @@ describe( 'geom.Bounds', ():void=>{
       expect(points[3].equal(new Point(100, 200))).to.true
     });
   });
+
+  describe('getPoints',():void=>{
+    it('should return points data', ():void=>{
+      const bounds:Bounds = new Bounds( 100, 100, 200, 200);
+      const points:Point[] = bounds.getPoints();
+      expect(points[0].equal(new Point(100, 100))).to.true
+      expect(points[1].equal(new Point(200, 100))).to.true
+      expect(points[2].equal(new Point(200, 200))).to.true
+      expect(points[3].equal(new Point(100, 200))).to.true
+    });
+  });
+
+  describe('extend',():void=>{
+    it('should update bounds when extend by point (extend to left)', ():void=>{
+      const bounds:Bounds = new Bounds( 100, 100, 200, 200);
+      bounds.extendByPoint( new Point( 0, 100 ));
+      const points:Point[] = bounds.getPoints();
+      expect(points[0].equal(new Point(0, 100))).to.true
+      expect(points[1].equal(new Point(200, 100))).to.true
+      expect(points[2].equal(new Point(200, 200))).to.true
+      expect(points[3].equal(new Point(0, 200))).to.true
+    });
+
+    it('should update bounds when extend by point (extend to right)', ():void=>{
+      const bounds:Bounds = new Bounds( 100, 100, 200, 200);
+      bounds.extendByPoint( new Point( 300, 100 ));
+      const points:Point[] = bounds.getPoints();
+      expect(points[0].equal(new Point(100, 100))).to.true
+      expect(points[1].equal(new Point(300, 100))).to.true
+      expect(points[2].equal(new Point(300, 200))).to.true
+      expect(points[3].equal(new Point(100, 200))).to.true
+    });
+
+    it('should update bounds when extend by point (extend to up)', ():void=>{
+      const bounds:Bounds = new Bounds( 100, 100, 200, 200);
+      bounds.extendByPoint( new Point( 100, 0 ));
+      const points:Point[] = bounds.getPoints();
+      expect(points[0].equal(new Point(100, 0))).to.true
+      expect(points[1].equal(new Point(200, 0))).to.true
+      expect(points[2].equal(new Point(200, 200))).to.true
+      expect(points[3].equal(new Point(100, 200))).to.true
+    });
+
+    it('should update bounds when extend by point (extend to down)', ():void=>{
+      const bounds:Bounds = new Bounds( 100, 100, 200, 200);
+      bounds.extendByPoint( new Point( 100, 300 ));
+      const points:Point[] = bounds.getPoints();
+      expect(points[0].equal(new Point(100, 100))).to.true
+      expect(points[1].equal(new Point(200, 100))).to.true
+      expect(points[2].equal(new Point(200, 300))).to.true
+      expect(points[3].equal(new Point(100, 300))).to.true
+    });
+
+    it('should update bounds when extend by point (extend to left up)', ():void=>{
+      const bounds:Bounds = new Bounds( 100, 100, 200, 200);
+      bounds.extendByPoint( new Point( 0, 0 ));
+      const points:Point[] = bounds.getPoints();
+      expect(points[0].equal(new Point(0, 0))).to.true
+      expect(points[1].equal(new Point(200, 0))).to.true
+      expect(points[2].equal(new Point(200, 200))).to.true
+      expect(points[3].equal(new Point(0, 200))).to.true
+    });
+
+    it('should update bounds when extend by point (extend to left down)', ():void=>{
+      const bounds:Bounds = new Bounds( 100, 100, 200, 200);
+      bounds.extendByPoint( new Point( 0, 300 ));
+      const points:Point[] = bounds.getPoints();
+      expect(points[0].equal(new Point(0, 100))).to.true
+      expect(points[1].equal(new Point(200, 100))).to.true
+      expect(points[2].equal(new Point(200, 300))).to.true
+      expect(points[3].equal(new Point(0, 300))).to.true
+    });
+
+    it('should update bounds when extend by point (extend to right up)', ():void=>{
+      const bounds:Bounds = new Bounds( 100, 100, 200, 200);
+      bounds.extendByPoint( new Point( 300, 0 ));
+      const points:Point[] = bounds.getPoints();
+      expect(points[0].equal(new Point(100, 0))).to.true
+      expect(points[1].equal(new Point(300, 0))).to.true
+      expect(points[2].equal(new Point(300, 200))).to.true
+      expect(points[3].equal(new Point(100, 200))).to.true
+    });
+
+    it('should update bounds when extend by point (extend to right down)', ():void=>{
+      const bounds:Bounds = new Bounds( 100, 100, 200, 200);
+      bounds.extendByPoint( new Point( 300, 300 ));
+      const points:Point[] = bounds.getPoints();
+      expect(points[0].equal(new Point(100, 100))).to.true
+      expect(points[1].equal(new Point(300, 100))).to.true
+      expect(points[2].equal(new Point(300, 300))).to.true
+      expect(points[3].equal(new Point(100, 300))).to.true
+    });
+  });
 });
