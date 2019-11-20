@@ -19,4 +19,10 @@ export default class Container extends Display {
   public removeChild(display: Display): void {
     this._childs.delete(display);
   }
+
+  public update(): void {
+    this._childs.forEach((child: Display): void => {
+      child.update();
+    });
+  }
 }

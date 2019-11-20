@@ -6,4 +6,8 @@ export default class Display {
 
   constructor() {
   }
+
+  public update(): void {
+
+  }
 }
