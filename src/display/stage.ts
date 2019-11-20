@@ -18,11 +18,14 @@ export default class Stage extends Container {
     this._height = value;
   }
 
+  private _context: CanvasRenderingContext2D;
+
   constructor(
     private _canvas: HTMLCanvasElement,
     private _width?: number,
     private _height?: number) {
     super();
+    this._context = this._canvas.getContext('2d');
     if (_width !== undefined) {
       _canvas.width = _width;
     }
