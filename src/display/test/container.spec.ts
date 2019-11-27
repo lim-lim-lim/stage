@@ -1,5 +1,5 @@
-import Container from "./container";
-import Display from "./display";
+import Container from "../container";
+import Display from "../display";
 import { expect } from 'chai';
 
 describe('display.Container', (): void => {

@@ -1,4 +1,4 @@
-import Point from './point';
+import Point from '../point';
 import { expect } from 'chai';
 
 describe('geom.Point', (): void => {

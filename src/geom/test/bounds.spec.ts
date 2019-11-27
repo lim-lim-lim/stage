@@ -1,6 +1,6 @@
-import Bounds from './bounds';
+import Bounds from '../bounds';
 import { expect } from 'chai';
-import Point from './point';
+import Point from '../point';
 
 describe( 'geom.Bounds', ():void=>{  
   describe('constructor', ():void=>{
